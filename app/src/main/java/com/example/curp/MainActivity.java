@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextInputLayout txtnameinput, txtnamelastP, txtnamelastM;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +45,14 @@ public class MainActivity extends AppCompatActivity {
         String lastNameM = lastNameMtext.getText().toString();
 
             try {
-                if (validate()){
+                boolean campos = validate();
+                if (campos){
+                    Bundle SendData = new Bundle();
+                    String[] datos = new String[]{name,lastNameP,lastNameM};
+                    SendData.putStringArray("Data",datos);
                     Intent i = new Intent(MainActivity.this, dateView.class);
+                    i.putExtras(SendData);
                     startActivity(i);
-                }else{
-                    validate();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -119,14 +123,14 @@ public class MainActivity extends AppCompatActivity {
             txtnamelastP.setError("Ingrese su apellido paterno por favor");
             valor = false;
         }else{
-            txtnameinput.setErrorEnabled(false);
+            txtnamelastP.setErrorEnabled(false);
         }
 
         if (lastnameMC.isEmpty()){
             txtnamelastM.setError("Ingrese su apellido materno por favor");
             valor = false;
         }else{
-            txtnameinput.setErrorEnabled(false);
+            txtnamelastM.setErrorEnabled(false);
         }
         return  valor;
     }

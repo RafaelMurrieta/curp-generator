@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText lastNamePtext;
     private EditText lastNameMtext;
 
+
     private TextInputLayout txtnameinput, txtnamelastP, txtnamelastM;
 
 

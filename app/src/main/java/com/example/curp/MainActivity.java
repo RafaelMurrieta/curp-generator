@@ -38,8 +38,48 @@ public class MainActivity extends AppCompatActivity {
         txtnameinput = findViewById(R.id.namet);
         txtnamelastP = findViewById(R.id.lastNameP);
         txtnamelastM = findViewById(R.id.lastNameM);
+        configureTextWatchers();
     }
+    private void configureTextWatchers() {
+        nametext.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                txtnameinput.setErrorEnabled(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+
+        lastNamePtext.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                txtnamelastP.setErrorEnabled(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+
+        lastNameMtext.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                txtnamelastM.setErrorEnabled(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
     public void ChangeViewDates(View v) {
         String name = nametext.getText().toString();
         String lastNameP = lastNamePtext.getText().toString();
@@ -59,52 +99,6 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
-            nametext.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                }
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    txtnameinput.setErrorEnabled(false);
-                }
-                @Override
-                public void afterTextChanged(Editable s) {
-
-                }
-            });
-            lastNamePtext.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    txtnamelastP.setErrorEnabled(false);
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-
-                }
-            });
-
-            lastNameMtext.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    txtnamelastM.setErrorEnabled(false);
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-
-                }
-            });
     }
 
     private boolean validate(){

@@ -14,7 +14,7 @@ import java.util.Locale;
 public class resultate extends AppCompatActivity {
     private String name, lastnameP, lastnameM, day, mont, year, sex, state, abrev;
 
-    private String firstLastNameP, firstVocalP, namef, names, namet, secondLastNameM, yearT, genV;
+    private String firstLastNameP, firstVocalP, namef, names, namet, secondLastNameM, yearT, genV,twolastnameP,twolastnameM,twoNameCo;
     private TextView nam, lastP, lastM, dayt, montx, yeart, gen, sta, curp;
 
     private boolean twoName = false, treeName = false;
@@ -46,6 +46,14 @@ public class resultate extends AppCompatActivity {
                     boolean espacioEncontrado = false;
                     ArrayList<Character> nameLetters = new ArrayList<>();
                     nameLetters.add(nameSearch[0]);
+                    ArrayList<Character> consonantsname = new ArrayList<>();
+                    for (char valor :nameSearch) {
+                        if (valor != 'A' && valor != 'E' && valor != 'I' && valor != 'O' && valor != 'U' && valor != 'H' && valor != 'Ñ'){
+                            consonantsname.add(valor);
+                        }
+                    }
+                    twoNameCo = String.valueOf(consonantsname.get(1));
+
                     for (char valor : nameSearch) {
                         if (valor == ' ') {
                             espacioEncontrado = true;
@@ -81,6 +89,7 @@ public class resultate extends AppCompatActivity {
                         }
                     }
                     firstLastNameP = String.valueOf(consonants.get(0));
+                    twolastnameP = String.valueOf(consonants.get(1));
                     firstVocalP = String.valueOf(vocalsP.get(0));
                 }
 
@@ -99,6 +108,7 @@ public class resultate extends AppCompatActivity {
                         }
                     }
                     secondLastNameM = String.valueOf(consonantsM.get(0));
+                    twolastnameM = String.valueOf(consonantsM.get(1));
                 }
 
                 nam.setText(name);
@@ -135,7 +145,7 @@ public class resultate extends AppCompatActivity {
             if (receivedData.containsKey("Abrev")) {
                 abrev = receivedData.getString("Abrev");
             }
-
+            try {
                 if (twoName){
                     curp.setText(firstLastNameP + " " +firstVocalP +" "+secondLastNameM+" "+namef+" "+yearT+" "+mont+" "+names);
                     twoName = false;
@@ -143,10 +153,13 @@ public class resultate extends AppCompatActivity {
                     curp.setText(firstLastNameP + " " +firstVocalP +" "+secondLastNameM+" "+namef+" "+yearT+" "+mont+" "+names+" "+namet);
                     treeName = false;
                 }else {
-                    curp.setText(firstLastNameP + " " +firstVocalP +" "+secondLastNameM+" "+namef+" "+yearT+" "+mont+" "+day+" "+" "+genV+" "+abrev);
+                    curp.setText(firstLastNameP + " " +firstVocalP +" "+secondLastNameM+" "+namef+" "+yearT+" "+mont+" "+day+" "+" "+genV+" "+abrev+" "+twolastnameP+" "+twolastnameM+" "+twoNameCo);
                 }
+            }catch (Exception e){
+                Log.d("Insersion", "Error al establecer los datos: "+e);
+            }
         } else {
-            Log.d("Sin datos", "No se recibieron datos en el Intent.");
+            Log.d("Sin datos", "No se recibieron datos en la nueva pantalla.");
         }
     }
 }

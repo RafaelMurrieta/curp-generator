@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">Curp</string>
+    <string name="title">Consulta de curp</string>
+    <string name="ingresa_el_a_o_ej_1943">Ingresa el año Ej. 1943</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="regresar">Regresar</string>
+    <string name="mes_de_nacimiento">Mes de nacimiento</string>
+    <string name="dia_de_nacimiento">Dia de nacimiento</string>
+    <string name="a_o_de_nacimiento">Año de nacimiento</string>
+    <string name="resultado">Resultado</string>
+    <string name="textview_day">TextViewDay</string>
+    <string name="textview_result">TextView_result</string>
+    <string name="textview_gen">TextView_gen</string>
+    <string name="textviewlastp">TextViewLastp</string>
+    <string name="textviewlastM">TextViewlastM</string>
+    <string name="textview_mont">TextView_Mont</string>
+    <string name="textview_state">TextView_state</string>
+    <string name="dia_de_nacimiento_text">Dia de nacimiento</string>
+    <string name="mes_de_nacimiento_txt">Mes de nacimiento</string>
+    <string name="a_o_de_nacimiento_txt">Año de nacimiento</string>
+    <string name="estado_de_la_republicatxt">Estado de la republica</string>
+    <string name="curptxt">Curp</string>
+    <string name="generotxt">Genero</string>
+    <string name="nombretxt">Nombre:</string>
+    <string name="apellido_maternotxt">Apellido materno</string>
+    <string name="apellido_paternotxt">Apellido Paterno</string>
+    <string name="textviewtxt">TextView</string>
+    <string name="nombretxt_inputL">Nombre</string>
+    <string name="apellido_paternotxtLayout">Apellido paterno</string>
 </resources>

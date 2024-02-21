@@ -27,4 +27,12 @@
     <string name="textviewtxt">TextView</string>
     <string name="nombretxt_inputL">Nombre</string>
     <string name="apellido_paternotxtLayout">Apellido paterno</string>
+    <string name="laspa">laspA</string>
+    <string name="day">day</string>
+    <string name="gen">gen</string>
+    <string name="lastma">lastMa</string>
+    <string name="mont">mont</string>
+    <string name="curp">curp</string>
+    <string name="naci">naci</string>
+    <string name="state">state</string>
 </resources>

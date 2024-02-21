@@ -1,10 +1,16 @@
 package com.example.curp;
 
+import static java.lang.Math.round;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -33,6 +39,13 @@ public class resultate extends AppCompatActivity {
         gen = findViewById(R.id.gentxt);
         sta = findViewById(R.id.stateTxt);
         curp = findViewById(R.id.finalResult);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        Button returnLoca = (Button) findViewById(R.id.returnLocation);
+
+        returnLoca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {onBackPressed();}
+        });
 
         Bundle receivedData = getIntent().getExtras();
 
@@ -52,7 +65,14 @@ public class resultate extends AppCompatActivity {
                             consonantsname.add(valor);
                         }
                     }
-                    twoNameCo = String.valueOf(consonantsname.get(1));
+                           // if (consonantsname.isEmpty()){
+                           //     AlertDialog.Builder empityBocals = new AlertDialog.Builder(resultate.this);
+                              //  empityBocals.setMessage("Los datos no contienen los caracteres suficientes").setCancelable(false);
+                              //  Intent intent = getIntent();
+                              //  finish();
+                             //   startActivity(intent);
+                            //}else {
+                                twoNameCo = String.valueOf(consonantsname.get(1));
 
                     for (char valor : nameSearch) {
                         if (valor == ' ') {
@@ -88,9 +108,11 @@ public class resultate extends AppCompatActivity {
                             vocalsP.add(valor);
                         }
                     }
-                    firstLastNameP = String.valueOf(consonants.get(0));
-                    twolastnameP = String.valueOf(consonants.get(1));
-                    firstVocalP = String.valueOf(vocalsP.get(0));
+
+                        firstLastNameP = String.valueOf(consonants.get(0));
+                        twolastnameP = String.valueOf(consonants.get(1));
+                        firstVocalP = String.valueOf(vocalsP.get(0));
+
                 }
 
                 lastnameM = datos[2];
@@ -107,8 +129,9 @@ public class resultate extends AppCompatActivity {
                             consonantsM.add(valor);
                         }
                     }
-                    secondLastNameM = String.valueOf(consonantsM.get(0));
-                    twolastnameM = String.valueOf(consonantsM.get(1));
+                        secondLastNameM = String.valueOf(consonantsM.get(0));
+                        twolastnameM = String.valueOf(consonantsM.get(1));
+
                 }
 
                 nam.setText(name);
@@ -124,7 +147,9 @@ public class resultate extends AppCompatActivity {
                 gen.setText(sex);
                 if ("Mujer".equals(sex)) {
                     genV = "M";
-                } else {
+                } else if("No binario".equals(sex)){
+                    genV = "X";
+                }else {
                     genV = "H";
                 }
             }
@@ -145,6 +170,19 @@ public class resultate extends AppCompatActivity {
             if (receivedData.containsKey("Abrev")) {
                 abrev = receivedData.getString("Abrev");
             }
+
+            StringBuilder abecedario = new StringBuilder();
+            char letra = 'a';
+            for (int i= 0; i<26;i++){
+                abecedario.append(letra);
+                letra++;
+            }
+
+            int numberAla = (int) Math.round(Math.random() * 25);
+            char letterAbc = abecedario.charAt(numberAla);
+            letterAbc = Character.toUpperCase(letterAbc);
+            int numberHomo = (int) round(Math.random()*9);
+
             try {
                 if (twoName){
                     curp.setText(firstLastNameP + " " +firstVocalP +" "+secondLastNameM+" "+namef+" "+yearT+" "+mont+" "+names);
@@ -153,7 +191,7 @@ public class resultate extends AppCompatActivity {
                     curp.setText(firstLastNameP + " " +firstVocalP +" "+secondLastNameM+" "+namef+" "+yearT+" "+mont+" "+names+" "+namet);
                     treeName = false;
                 }else {
-                    curp.setText(firstLastNameP + " " +firstVocalP +" "+secondLastNameM+" "+namef+" "+yearT+" "+mont+" "+day+" "+" "+genV+" "+abrev+" "+twolastnameP+" "+twolastnameM+" "+twoNameCo);
+                    curp.setText(firstLastNameP + " " +firstVocalP +" "+secondLastNameM+" "+namef+" "+yearT+" "+mont+" "+day+" "+" "+genV+" "+abrev+" "+twolastnameP+" "+twolastnameM+" "+twoNameCo+" "+letterAbc+" "+numberHomo);
                 }
             }catch (Exception e){
                 Log.d("Insersion", "Error al establecer los datos: "+e);

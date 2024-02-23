@@ -64,7 +64,7 @@ public class location extends AppCompatActivity implements AdapterView.OnItemSel
         abreviaturasEstados.put("Hidalgo","HG");
         abreviaturasEstados.put("Jalisco","JC");
         abreviaturasEstados.put("Estado de México","MC");
-        abreviaturasEstados.put("Michoacan","MN");
+        abreviaturasEstados.put("Michoacán","MN");
         abreviaturasEstados.put("Morelos","MS");
         abreviaturasEstados.put("Nayarit","NT");
         abreviaturasEstados.put("Nuevo León","NL");

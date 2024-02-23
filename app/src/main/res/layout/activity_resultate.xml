@@ -184,7 +184,6 @@
         android:layout_width="314dp"
         android:layout_height="45dp"
         android:layout_marginBottom="120dp"
-        android:text="@string/textview_result"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -226,25 +225,38 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/exitbtn"
+        android:layout_width="67dp"
+        android:layout_height="34dp"
         android:layout_marginTop="4dp"
-        android:text="Salir"
+        android:text="@string/salir"
+        android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/SearchNew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
-        android:text="Buscar una nueva curp"
+        android:text="@string/buscar_una_nueva_curp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toEndOf="@+id/returnLocation" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="132dp"
+        android:background="@color/md_theme_dark_inversePrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toEndOf="@+id/finalResult"
+        app:srcCompat="?attr/actionModePasteDrawable" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

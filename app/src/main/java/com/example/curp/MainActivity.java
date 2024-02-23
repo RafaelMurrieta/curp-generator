@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.Normalizer;
+import java.util.regex.Pattern;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText nametext;
@@ -84,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
         String name = nametext.getText().toString();
         String lastNameP = lastNamePtext.getText().toString();
         String lastNameM = lastNameMtext.getText().toString();
+        name = quitaAcentos(name);
+        lastNameP = quitaAcentos(lastNameP);
+        lastNameM = quitaAcentos(lastNameM);
 
             try {
                 boolean campos = validate();
@@ -128,5 +134,11 @@ public class MainActivity extends AppCompatActivity {
             txtnamelastM.setErrorEnabled(false);
         }
         return  valor;
+    }
+
+    public static  String quitaAcentos(String texto){
+        String txtnomal = Normalizer.normalize(texto, Normalizer.Form.NFD);
+        Pattern patron = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return  patron.matcher(txtnomal).replaceAll("");
     }
 }

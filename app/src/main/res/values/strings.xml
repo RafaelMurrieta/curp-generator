@@ -35,4 +35,6 @@
     <string name="curp">curp</string>
     <string name="naci">naci</string>
     <string name="state">state</string>
+    <string name="buscar_una_nueva_curp">Buscar una nueva curp</string>
+    <string name="salir">Salir</string>
 </resources>

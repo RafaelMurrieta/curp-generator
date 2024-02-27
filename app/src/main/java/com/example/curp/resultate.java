@@ -26,9 +26,11 @@ public class resultate extends AppCompatActivity {
 
     private boolean twoName = false, treeName = false,horn = false, printCurp = false;
 
+    Button imgtn;
+
     Button exitboton, newseach;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,19 +52,11 @@ public class resultate extends AppCompatActivity {
 
         returnLoca.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onBackPressed();}});
 
-        exitboton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                closeApplication();
-            }
-        });
+        exitboton.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {closeApplication();}});
 
-        newseach.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nwSh();
-            }
-        });
+        newseach.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {nwSh();}});
+
+
 
         Bundle receivedData = getIntent().getExtras();
         if (receivedData != null) {
@@ -76,9 +70,12 @@ public class resultate extends AppCompatActivity {
                     ArrayList<Character> nameLetters = new ArrayList<>();
                     nameLetters.add(nameSearch[0]);
                     ArrayList<Character> consonantsname = new ArrayList<>();
+                    ArrayList<Character> vocalsName = new ArrayList<>();
                     for (char valor :nameSearch) {
                         if (valor != 'A' && valor != 'E' && valor != 'I' && valor != 'O' && valor != 'U' && valor != 'Ñ'){
                             consonantsname.add(valor);
+                        }else{
+                            vocalsName.add(valor);
                         }
                         Log.d("Consonants", "Letras consonantes: "+consonantsname);
                     }
@@ -97,15 +94,12 @@ public class resultate extends AppCompatActivity {
                             espacioEncontrado = false;
                         }
                     }
-                    if (nameLetters.size() == 3) {
-                        namef = String.valueOf(nameLetters.get(0));
-                        names = String.valueOf(nameLetters.get(1));
-                        namet = String.valueOf(nameLetters.get(2));
-                        treeName = true;
-                    } else if (nameLetters.size() == 2) {
+                         if (nameLetters.size() == 2) {
                         namef = String.valueOf(nameLetters.get(0));
                         names = String.valueOf(nameLetters.get(1));
                         twoName = true;
+                        twoNameCo = String.valueOf(consonantsname.get(0));
+
                     } else {
                         namef = String.valueOf(nameLetters.get(0));
                     }
@@ -136,23 +130,33 @@ public class resultate extends AppCompatActivity {
                     if (consonants.isEmpty() || vocalsP.isEmpty()){
                         printCurp = true;
                     }else{
-                        if (horn){
-                            firstLastNameP = String.valueOf(vocalsP.get(0));
-                            firstVocalP = String.valueOf(consonants.get(0));
-                            twolastnameP = String.valueOf(consonants.get(0));
+                        if (twoName) {
+                            if (horn) {
+                                firstLastNameP = String.valueOf(consonants.get(0));
+                                firstVocalP = String.valueOf(vocalsP.get(0));
+                                twolastnameP = String.valueOf(consonants.get(0));
+                            } else {
+                                firstLastNameP = String.valueOf(consonants.get(0));
+                                twolastnameP = String.valueOf(consonants.get(1));
+                                firstVocalP = String.valueOf(vocalsP.get(0));
+                            }
                         }else{
-                            firstLastNameP = String.valueOf(consonants.get(0));
-                            twolastnameP = String.valueOf(consonants.get(1));
-                            firstVocalP = String.valueOf(vocalsP.get(0));
+                            if (horn) {
+                                firstLastNameP = String.valueOf(vocalsP.get(0));
+                                firstVocalP = String.valueOf(consonants.get(0));
+                                twolastnameP = String.valueOf(consonants.get(0));
+                            } else {
+                                firstLastNameP = String.valueOf(consonants.get(0));
+                                twolastnameP = String.valueOf(consonants.get(1));
+                                firstVocalP = String.valueOf(vocalsP.get(0));
+                            }
                         }
                     }
                 }
 
                 lastnameM = datos[2];
                 lastnameM = lastnameM.toUpperCase(Locale.getDefault());
-                if (treeName) {
-                    secondLastNameM = namet;
-                } else {
+
                     char[] lastMseach = lastnameM.toCharArray();
                     ArrayList<Character> consonantsM = new ArrayList<>();
                     for (char valor : lastMseach) {
@@ -165,8 +169,7 @@ public class resultate extends AppCompatActivity {
                     }else {
                         secondLastNameM = String.valueOf(consonantsM.get(0));
                         twolastnameM = String.valueOf(consonantsM.get(1));
-                    }
-                }
+                  }
 
                 nam.setText(name);
                 lastP.setText(lastnameP);
@@ -219,9 +222,11 @@ public class resultate extends AppCompatActivity {
             try {
                 if (!printCurp) {
                     if (twoName) {
-                        curp.setText(firstLastNameP + " " + firstVocalP + " " + secondLastNameM + " " + namef + " " + yearT + " " + mont + " " + day + " " + genV + " " + abrev + " " + twolastnameP + " " + twolastnameM + " " + twoNameCo + " " + letterAbc + " " + numberHomo);
+                        Log.d("salida", "2 nombres ");
+                        curp.setText(firstLastNameP + " " + firstVocalP + " " + secondLastNameM + " " + names + " " + yearT + " " + mont + " " + day + " " + genV + " " + abrev + " " + twolastnameP + " " + twolastnameM + " " + twoNameCo + " " + letterAbc + " " + numberHomo);
                         twoName = false;
                     } else {
+                        Log.d("salida", "1 nombre ");
                         curp.setText(firstLastNameP + " " + firstVocalP + " " + secondLastNameM + " " + namef + " " + yearT + " " + mont + " " + day + " " + genV + " " + abrev + " " + twolastnameP + " " + twolastnameM + " " + twoNameCo + " " + letterAbc + " " + numberHomo);
                     }
                 }else{

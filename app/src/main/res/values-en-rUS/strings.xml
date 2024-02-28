@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Curp</string>
+    <string name="title">Curp Consultation</string>
+    <string name="ingresa_el_a_o_ej_1943">Enter the year Ex. 1943</string>
+    <string name="siguiente">Next</string>
+    <string name="regresar">Return</string>
+    <string name="mes_de_nacimiento">Month of Birth</string>
+    <string name="dia_de_nacimiento">Day of Birth</string>
+    <string name="a_o_de_nacimiento">Year of Birth</string>
+    <string name="resultado">Result</string>
+    <string name="textview_day">TextViewDay</string>
+    <string name="textview_result">TextView_result</string>
+    <string name="textview_gen">TextView_gen</string>
+    <string name="textviewlastp">TextViewLastp</string>
+    <string name="textviewlastM">TextViewlastM</string>
+    <string name="textview_mont">TextView_Mont</string>
+    <string name="textview_state">TextView_state</string>
+    <string name="dia_de_nacimiento_text">Day of Birth</string>
+    <string name="mes_de_nacimiento_txt">Month of Birth</string>
+    <string name="a_o_de_nacimiento_txt">Year of Birth</string>
+    <string name="estado_de_la_republicatxt">State of the Republic</string>
+    <string name="curptxt">Curp</string>
+    <string name="generotxt">Gender</string>
+    <string name="nombretxt">Name:</string>
+    <string name="apellido_maternotxt">Mother\'s surname:</string>
+    <string name="apellido_paternotxt">Paternal Surname:</string>
+    <string name="textviewtxt">TextView</string>
+    <string name="nombretxt_inputL">Name:</string>
+    <string name="apellido_paternotxtLayout">Paternal surname:</string>
+    <string name="laspa">laspA</string>
+    <string name="day">Day</string>
+    <string name="gen">Gen</string>
+    <string name="lastma">LastMa</string>
+    <string name="mont">mont</string>
+    <string name="curp">Curp</string>
+    <string name="naci">Naci</string>
+    <string name="state">State</string>
+    <string name="buscar_una_nueva_curp">Find a new curp</string>
+    <string name="salir">Exit</string>
+</resources>

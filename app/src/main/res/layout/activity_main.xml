@@ -59,7 +59,7 @@
         android:id="@+id/lastNameM"
         android:layout_width="283dp"
         android:layout_height="78dp"
-        android:hint="Apellido materno"
+        android:hint="@string/apellido_maternotxt"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
